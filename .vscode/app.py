@@ -29,7 +29,7 @@ def make_playlist(genre, vibe, n_songs=20):
     playlist = playlist.copy()
     playlist["spotify_url"] = "https://open.spotify.com/track/" + playlist["track_id"]
 
-    # Return only the columns you care about
+    # Return only the columns 
     return playlist[["track_name", "artists", "track_genre", "spotify_url"]]
 
 @app.route("/")
