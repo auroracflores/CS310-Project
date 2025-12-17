@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sort Your Playlist</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <h1>Welcome to Playlist Sorting</h1>
+<form action="/results" method="POST">
+
+
+  <h2>What is your favorite genre?</h2>
+  <label><input type="radio" name="genre" value="pop">Pop</label>
+  <label><input type="radio" name="genre" value="hip hop">Hip-hop</label>
+  <label><input type="radio" name="genre" value="country">Country</label>
+
+  <h2>Upbeat or Chill Vibes?</h2>
+  <label><input type="radio" name="vibe" value="Upbeat">Upbeat</label>
+  <label><input type="radio" name="vibe" value="Chill">Chill</label>
+
+
+
+  <button type="submit">Make my playlist</button>
+</form>
+</body>
+</html>
