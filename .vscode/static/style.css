@@ -1,0 +1,372 @@
+html {
+    background-color: var(--bg-color);
+}
+
+/*** body ***
+  
+  Purpose:
+  - Add style rules for the body of your webpage
+  - This is useful if you want a rule to apply to EVERYTHING on your page
+    - (Tip: You can always override these rules later in the stylesheet)
+
+  When To Modify:
+  - [ ] Project 3 (REQUIRED FEATURE) 
+  - [ ] Any time after
+***/
+
+body {
+    /* Add a background color or image */
+    background-color: var(--bg-color); /* see bottom of file for color variables */
+
+    /* Customize the default size, color, and font for text*/
+    font-size: 16px;
+    color: var(--text-color);
+    font-family: Tahoma, sans-serif; /* This tells the browser: "Try to use `Tahoma`, and if you can't find it, use any sans-serif font." */
+
+    /* Put space around the edges of the webpage */
+    margin: 5px;
+}
+
+
+
+
+h1 {
+    font-family: Georgia; 
+    font-size: 40px; 
+    color: #45032b; 
+}
+
+h2 {
+    font-family: Georgia; 
+    font-size: 23px; 
+    color: #0f0109;
+}
+
+h3 {
+    font-family: Georgia; 
+    font-size: 23px; 
+    color: #45032b;
+}
+
+h4 {
+    font-family: Georgia; 
+    font-size: 23px; 
+    color: #45032b;
+}
+
+p {
+    font-family:Cambria; 
+    font-size: 19px; 
+    color: #44052b;
+}
+
+
+
+a,
+a * {
+      
+}
+
+a:link {
+    color: red;
+  }
+  
+  a:visited {
+    color: rgb(128, 0, 0);
+  }
+  
+  a:hover {
+    color: hotpink;
+  }
+  
+
+  a:active {
+    color: rgb(0, 140, 255);
+  }
+
+
+
+button {
+    /* Example Style, replace with your own! */
+    display: block;
+    margin-top: 20px;
+    background-color: #6e2149;    /* button color */
+    color: rgb(255, 255, 255);               /* text color */
+    /*border: none;               /* hides the default border */
+    padding: 5px 12px;          /* space between button's text and edge */
+    border-radius: 10px;         /* curved edges instead of square */
+    cursor: pointer;            /* makes the cursor change when over button */
+    font-family: Georgia; 
+    font-size: 22;
+}
+
+body {
+    background-color: #e8beda; 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+button:hover {
+    /* Make the button look different when the user hovers over it */
+    
+}
+
+/*** header ***
+  
+  Purpose:
+  - Add style rules for your website's header section
+
+  When To Modify:
+  - [X] Project 3 (REQUIRED FEATURE) 
+  - [ ] Project 4 (REQUIRED FEATURE) 
+  - [ ] Any time after
+***/
+
+.header-container { /* Example A: This styles elements with class="header" */
+    padding-top: 20px;
+    margin-bottom: 30px;
+    text-align: center; 
+    background-color: #f9c2e6;
+    display:flex;
+    flex-direction: column;
+}
+
+.header-item:nth-of-type(1), .header-item:nth-of-type(2) {
+    width: 50%; 
+    float: right; 
+}
+
+#header-img {
+    margin-left: 0px;
+    margin-right: 40px;
+    margin-top: 50px;
+    width: 380px; 
+    max-width: 90%;
+}
+
+.header-button {
+    background-color: #d37ba9;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: 2px solid #d37ba9;
+    cursor: pointer;
+}
+/*** footer ***
+  
+  Purpose:
+  - Add style rules for your website's footer section
+
+  When To Modify:
+  - [ ] Project 3 (STRETCH FEATURE) 
+  - [ ] Any time after
+***/
+
+.footer { /* Example B: This styles elements with class="footer" */
+    
+}
+
+/*** Navbar [PLACEHOLDER] [ADDED IN UNIT 4] ***/
+
+.navbar ul {
+  background-color: #c6649f;
+  padding: 10px;
+  top: 0;              /* Position at the top */
+  left: 0;
+  width: 100%;         /* Stretch across full screen */
+  z-index: 1000;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar ul li {
+  float: left;
+  margin: 10px;
+}
+
+.navbar ul li a {
+  background-color: #d37ba9;    /* button color */
+    color: rgb(255, 255, 255);               /* text color */
+    border: none;               /* hides the default border */
+    padding: 5px 12px;          /* space between button's text and edge */
+    border-radius: 10px;         /* curved edges instead of square */
+    cursor: pointer;            /* makes the cursor change when over button */
+    font-family: Georgia; 
+    font-size: 22;
+}
+
+.navbar ul li a:hover {
+  
+}
+
+
+.form-container {
+  background-color: #ce3b76;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#rsvp-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#rsvp-form label {
+  font-weight: bold;
+  color: #e47bb6;
+  margin-right: 5px;
+}
+
+#rsvp-form input[type="text"],
+#rsvp-form input[type="email"] {
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: Tahoma, sans-serif;
+}
+
+#rsvp-button {
+  background-color: #963085;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: Tahoma, sans-serif;
+}
+
+#rsvp-button:hover {
+  background-color: #b0a5d2;
+}
+
+
+
+.error {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #4a0f14; 
+  background-color: #5a0f43;
+
+}
+
+.rsvp-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  padding-bottom: 50px;
+}
+.rsvp-para {
+  width: 55%;
+  padding-right: 10px;
+}
+
+.rsvp-participants {
+  width: 45%;
+  padding-right: 10px;
+}
+
+
+.modal {
+  display: none;   /* modal should be hidden by default*/
+  position: fixed; /* modal cannot move around the screen */
+  z-index: 2;      /* modal appears above other elements */ 
+  display: none; /* Hidden by default */
+  
+  
+  /* TODO: Make the modal fill the entire screen */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Add a semi-transparent background to shadow non-modal elements*/
+  background-color: rgba(0,0,0,0.4); /* 40% opacity black */
+
+  /* Flexbox settings for modal */
+  /* These won't apply until we update "display:" from "hidden" to "flex" in our JS */
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-container {
+    
+
+    /* Change modal size and spacing here */
+    padding: 50px;
+    width: 55%;
+
+    /* Customize modal style here */
+    background-color: rgb(227, 130, 178);
+    color: black;
+    text-align: center;
+    font-size: 1rem;
+    font-family: monospace;
+
+    /* Optional: Use flexbox to customize .modal-item layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.modal-container img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+.modal-item {
+    /* Optional: Style individual elements within the modal */
+}
+/*** Dark Mode [PLACEHOLDER] [ADDED IN UNIT 5] ***/
+/* Default dark mode style */
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+/* Example: Different dark mode style for h1 */
+.dark-mode h1 {
+  background-color: black;
+  color: white;
+}
+
+/* Example: Different dark mode style for visited links */
+.dark-mode a:visited * { 
+  background-color: black;
+  color: white;
+}
+
+
+
+:root {
+    /* Light Mode */
+    --bg-color: #e9d9e0;
+    --text-color: #231942;
+
+    /* Dark Mode */
+    --bg-color-dark-mode: #3e3377;
+    --text-color-dark-mode: #fff;
+
+    /* Accent Colors */
+    --accent-color-light: #d2cff5;
+    --accent-color-medium: #493092;
+    --accent-color-dark: #6348b2;
+    --accent-color-darkest: #231942;
+    --accent-color-green: #28eb76;
+
+    /* Error Colors */
+    --error-color: #f8bbd0;
+    --error-color-border: #e63946;
+}

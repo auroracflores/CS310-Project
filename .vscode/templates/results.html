@@ -1,0 +1,25 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sort Your Playlist</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<h1>Your Playlist</h1>
+  <form action="/results" method="POST">
+    <input type="hidden" name="genre" value="{{ genre }}">
+    <input type="hidden" name="vibe" value="{{ vibe }}">
+    <input type="hidden" name="sort_option" value="popularity">
+    <button type="submit">Sort by Popularity</button>
+  </form>
+  
+<ul>
+  {% for song in songs %}
+    <li>
+      {{ song.track_name }} – {{ song.artists }}
+      ({{ song.track_genre }})
+      <a href="{{ song.spotify_url }}" target="_blank">Play on Spotify</a>
+      
+    </li>
+  {% endfor %}
+</ul>
