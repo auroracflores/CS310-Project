@@ -4,22 +4,24 @@ import pandas as pd
 app = Flask(__name__)
 
 # Load the dataset once when the app starts
-df = pd.read_csv("C:\\Users\\BM\\OneDrive\\Documents\\CS310\\Playlist Sorting CS310\\.vscode\\data\\dataset.csv")
-
+#df = pd.read_csv("C:\\Users\\BM\\OneDrive\\Documents\\CS310\\Playlist Sorting CS310\\.vscode\\data\\dataset.csv")
+df = pd.read_csv("spotify_track_clean.csv")
 def make_playlist(genre, vibe, n_songs=20):
     playlist = df.copy()
 
-    # Filter by genre
-    if genre:
+    # Filter by genre or not if chosen "all"
+    if genre and genre != "all":
         playlist = playlist[playlist["track_genre"] == genre]
-
-
 
     # Filter by vibe using energy/valence as a proxy
     if vibe == "Upbeat":
-        playlist = playlist[(playlist["energy"] > 0.6) & (playlist["valence"] > 0.5)]
+        playlist = playlist[(playlist["energy"] > 0.6) &
+                             (playlist["valence"] > 0.5) &
+                             (playlist["tempo"] > 0.5)]
     elif vibe == "Chill":
-        playlist = playlist[(playlist["energy"] < 0.5) & (playlist["valence"] < 0.6)]
+        playlist = playlist[(playlist["energy"] < 0.5) &
+                             (playlist["valence"] < 0.6) &
+                             (playlist["acousticness"] > 0.4)]
 
     # Random sample of songs
     if len(playlist) > n_songs:
