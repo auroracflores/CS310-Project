@@ -20,8 +20,17 @@ def make_playlist(genre, vibe, n_songs=20):
                              (playlist["tempo"] > 0.5)]
     elif vibe == "Chill":
         playlist = playlist[(playlist["energy"] < 0.5) &
-                             (playlist["valence"] < 0.6) &
-                             (playlist["acousticness"] > 0.4)]
+                            (playlist["valence"] > 0.4) & #make valence between .4 and .8
+                             (playlist["valence"] < 0.8) &
+                             (playlist["acousticness"] > 0.5)]
+    elif vibe == "Moody":
+        playlist = playlist[(playlist["energy"] < 0.5) &
+                             (playlist["valence"] < 0.4) &
+                             (playlist["tempo"] < 0.5)]
+    elif vibe == "Party":
+        playlist = playlist[(playlist["energy"] > 0.7) &
+                             (playlist["tempo"] > 0.5) &
+                             (playlist["danceability"] > 0.6)]
 
     # Random sample of songs
     if len(playlist) > n_songs:
