@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request
 import pandas as pd
 import main as merge
-
+from flask import session
 app = Flask(__name__)
+app.secret_key = "dev_key"
 
 # Load the dataset once when the app starts
 #df = pd.read_csv("C:\\Users\\BM\\OneDrive\\Documents\\CS310\\Playlist Sorting CS310\\.vscode\\data\\dataset.csv")
@@ -35,7 +36,7 @@ def make_playlist(genre, vibe, n_songs=20):
 
     # Random sample of songs
     if len(playlist) > n_songs:
-        playlist = playlist.sample(n_songs, random_state=42)
+        playlist = playlist.sample(n_songs)
 
     # Add a Spotify URL column (track_id -> URL)
     playlist = playlist.copy()
@@ -50,19 +51,22 @@ def home():
 
 @app.route("/results", methods=["POST"])
 def results():
-    genre = request.form.get("genre")
-    vibe = request.form.get("vibe")
-
-    playlist = make_playlist(genre, vibe)
-    
-    # Convert to list of dicts so Jinja can loop easily
-    songs = playlist.to_dict(orient="records")
-
     sort_by = request.form.get("sort")
+
+    if "songs" not in session:
+        genre = request.form.get("genre")
+        vibe = request.form.get("vibe")
+
+        playlist = make_playlist(genre, vibe)
+        session["songs"] = playlist.to_dict(orient="records")
+
+    songs = session["songs"]
+
     if sort_by == "track":
         merge.mergeSort(songs, 0, len(songs) - 1, merge.mergeTrack)
     elif sort_by == "artist":
         merge.mergeSort(songs, 0, len(songs) - 1, merge.mergeArtist)
+    songs = session["songs"] # Save new song order
     return render_template("results.html", songs=songs)
 
 if __name__ == "__main__":
