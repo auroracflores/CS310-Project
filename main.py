@@ -15,7 +15,7 @@ def mergeTrack(arr, left, mid, right):
     k = left
 
     while i < sub1 and j < sub2:
-        if L[i].track_name <= R[j].track_name:
+        if L[i]['track_name'] <= R[j]['track_name']:
             arr[k] = L[i]
             i += 1
         else:
@@ -50,7 +50,7 @@ def mergeArtist(arr, left, mid, right):
     k = left
 
     while i < sub1 and j < sub2:
-        if L[i].artist <= R[j].artist:
+        if L[i]['artist'] <= R[j]['artist']:
             arr[k] = L[i]
             i += 1
         else:
@@ -85,7 +85,7 @@ def mergeEnergy(arr, left, mid, right):
     k = left
 
     while i < sub1 and j < sub2:
-        if L[i].energy <= R[j].energy:
+        if L[i]['energy'] <= R[j]['energy']:
             arr[k] = L[i]
             i += 1
         else:
@@ -115,3 +115,4 @@ def mergeSort(arr, left, right, sortChoice):
         # mergeSort(arr, 0, len(arr)-1, mergeTrack)
         # mergeSort(arr, 0, len(arr)-1, mergeArtist)
         # mergeSort(arr, 0, len(arr)-1, mergeEnergy)
+
