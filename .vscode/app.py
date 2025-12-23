@@ -35,7 +35,7 @@ def make_playlist(genre, vibe, n_songs=20):
 
     # Random sample of songs
     if len(playlist) > n_songs:
-        playlist = playlist.sample(n_songs)
+        playlist = playlist.sample(n_songs, random_state=42)
 
     # Add a Spotify URL column (track_id -> URL)
     playlist = playlist.copy()
