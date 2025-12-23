@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import pandas as pd
+import main as merge
 
 app = Flask(__name__)
 
@@ -53,10 +54,15 @@ def results():
     vibe = request.form.get("vibe")
 
     playlist = make_playlist(genre, vibe)
-
+    
     # Convert to list of dicts so Jinja can loop easily
     songs = playlist.to_dict(orient="records")
 
+    sort_by = request.form.get("sort")
+    if sort_by == "track":
+        merge.mergeSort(songs, 0, len(songs) - 1, merge.mergeTrack)
+    elif sort_by == "artist":
+        merge.mergeSort(songs, 0, len(songs) - 1, merge.mergeArtist)
     return render_template("results.html", songs=songs)
 
 if __name__ == "__main__":
